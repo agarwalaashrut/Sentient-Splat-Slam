@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/fmt-populate"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/97d80202c11f68238af613c9045e7d71/fmt-populate.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/600f0f26c7200b527d5003daf41da0e9/fmt-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/089f9ea2d5b142a1c360ec74fea5a1f6/fmt-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/089f9ea2d5b142a1c360ec74fea5a1f6/fmt-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/089f9ea2d5b142a1c360ec74fea5a1f6/fmt-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/089f9ea2d5b142a1c360ec74fea5a1f6/fmt-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/089f9ea2d5b142a1c360ec74fea5a1f6/fmt-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/089f9ea2d5b142a1c360ec74fea5a1f6/fmt-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/089f9ea2d5b142a1c360ec74fea5a1f6/fmt-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/fmt-subbuild/CMakeFiles/089f9ea2d5b142a1c360ec74fea5a1f6/fmt-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"fmt-populate"
+		],
+		"name" : "fmt-populate"
+	}
+}

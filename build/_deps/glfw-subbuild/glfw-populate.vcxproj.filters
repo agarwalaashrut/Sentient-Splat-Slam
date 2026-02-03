@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\632ea4329979e572c674e36e7203d435\glfw-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\632ea4329979e572c674e36e7203d435\glfw-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\632ea4329979e572c674e36e7203d435\glfw-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\632ea4329979e572c674e36e7203d435\glfw-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\632ea4329979e572c674e36e7203d435\glfw-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\632ea4329979e572c674e36e7203d435\glfw-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\632ea4329979e572c674e36e7203d435\glfw-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\632ea4329979e572c674e36e7203d435\glfw-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\1d3c6fb5a03ab52b29e85ab106ebbc20\glfw-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\4ff2223ec8fdd77734bd8ae1ad2f205c\glfw-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-subbuild\CMakeFiles\glfw-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{8D52939E-B887-3A40-9DD3-4BDBCADD281C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

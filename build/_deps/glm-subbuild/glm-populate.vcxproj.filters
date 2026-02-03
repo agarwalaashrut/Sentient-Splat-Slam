@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\49a3152a0bf6416eab086250137324bd\glm-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\49a3152a0bf6416eab086250137324bd\glm-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\49a3152a0bf6416eab086250137324bd\glm-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\49a3152a0bf6416eab086250137324bd\glm-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\49a3152a0bf6416eab086250137324bd\glm-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\49a3152a0bf6416eab086250137324bd\glm-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\49a3152a0bf6416eab086250137324bd\glm-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\49a3152a0bf6416eab086250137324bd\glm-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\f5211ee251d8e0aac9b2c3be5072c8c0\glm-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\a1369e0a705a5d35d99c3b3e6163239c\glm-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glm-subbuild\CMakeFiles\glm-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{50DDA810-4AFA-3BD6-A2F9-2E005401D101}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

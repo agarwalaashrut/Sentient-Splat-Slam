@@ -1,0 +1,14 @@
+# Target labels
+ glfw-populate
+# Source files and their labels
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/4ff2223ec8fdd77734bd8ae1ad2f205c/glfw-populate.rule
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/1d3c6fb5a03ab52b29e85ab106ebbc20/glfw-populate-complete.rule
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-build.rule
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-configure.rule
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-download.rule
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-install.rule
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-mkdir.rule
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-patch.rule
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-test.rule
+C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-update.rule

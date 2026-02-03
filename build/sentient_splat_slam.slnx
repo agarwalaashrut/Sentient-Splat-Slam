@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug"/>
+		<BuildType Name="Release"/>
+		<BuildType Name="MinSizeRel"/>
+		<BuildType Name="RelWithDebInfo"/>
+		<Platform Name="x64"/>
+	</Configurations>
+	<Project Path="_deps/fmt-build/fmt.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="cfe1ce64-d494-3fd3-aa03-18f6bd21550e">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="apps/viewer/glad_lib.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5b07cf39-604a-3fc0-b9f7-9764b083d1a9">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="_deps/glm-build/glm/glm.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="d244db15-21f4-351a-94c5-22a04753d5b4">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="apps/viewer/imgui_lib.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5b35d990-8558-3530-845b-2769f5a3d7e1">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+	</Project>
+	<Project Path="_deps/spdlog-build/spdlog.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2311b928-a666-3f34-99b4-3bfa20fced85">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="apps/viewer/viewer.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0997f91a-fff3-3265-9c92-6474e826e5a7">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="_deps/fmt-build/fmt.vcxproj"/>
+		<BuildDependency Project="apps/viewer/glad_lib.vcxproj"/>
+		<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+		<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+		<BuildDependency Project="apps/viewer/imgui_lib.vcxproj"/>
+		<BuildDependency Project="_deps/spdlog-build/spdlog.vcxproj"/>
+	</Project>
+	<Folder Name="/CMakePredefinedTargets/">
+		<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a04376cb-f9e2-3ff5-b5df-ab7d16eeaf2b" DefaultStartup="true">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="_deps/fmt-build/fmt.vcxproj"/>
+			<BuildDependency Project="apps/viewer/glad_lib.vcxproj"/>
+			<BuildDependency Project="_deps/glfw-build/src/glfw.vcxproj"/>
+			<BuildDependency Project="_deps/glm-build/glm/glm.vcxproj"/>
+			<BuildDependency Project="apps/viewer/imgui_lib.vcxproj"/>
+			<BuildDependency Project="_deps/spdlog-build/spdlog.vcxproj"/>
+			<BuildDependency Project="apps/viewer/viewer.vcxproj"/>
+		</Project>
+		<Project Path="INSTALL.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4aee41c7-8962-3514-b178-45e5c31cbfd5">
+			<BuildDependency Project="ALL_BUILD.vcxproj"/>
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="1300456c-0870-37ef-b4d2-1c6ced6856da"/>
+	</Folder>
+	<Folder Name="/GLFW3/">
+		<Project Path="_deps/glfw-build/src/glfw.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="bbcc7949-f66c-39b5-bb6a-9f4d36423338">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="_deps/glfw-build/uninstall.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="07359b35-d931-31a4-8f85-52cfe78dfc4d">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="_deps/glfw-build/src/update_mappings.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2942d18c-c9e2-303b-b2cb-88d480bcd187">
+			<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+	</Folder>
+</Solution>

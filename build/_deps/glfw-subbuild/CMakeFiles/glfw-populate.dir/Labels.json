@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/4ff2223ec8fdd77734bd8ae1ad2f205c/glfw-populate.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/1d3c6fb5a03ab52b29e85ab106ebbc20/glfw-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glfw-subbuild/CMakeFiles/632ea4329979e572c674e36e7203d435/glfw-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"glfw-populate"
+		],
+		"name" : "glfw-populate"
+	}
+}

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\CMakeFiles\0b5aa85d90ea3c65a52471ac72998e2e\uninstall.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\glfw-build\CMakeFiles\uninstall" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D39E0555-EB1D-34A6-927D-98EAD073706B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

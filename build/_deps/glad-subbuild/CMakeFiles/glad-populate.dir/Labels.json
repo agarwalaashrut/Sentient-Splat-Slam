@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/glad-populate"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/fab6499ee6d963934090af1aa4e98659/glad-populate.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/a4794c96fd80c8a96908fa219039db20/glad-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/f307a35f48d1aba60bc559f20e5ade03/glad-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/f307a35f48d1aba60bc559f20e5ade03/glad-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/f307a35f48d1aba60bc559f20e5ade03/glad-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/f307a35f48d1aba60bc559f20e5ade03/glad-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/f307a35f48d1aba60bc559f20e5ade03/glad-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/f307a35f48d1aba60bc559f20e5ade03/glad-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/f307a35f48d1aba60bc559f20e5ade03/glad-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glad-subbuild/CMakeFiles/f307a35f48d1aba60bc559f20e5ade03/glad-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"glad-populate"
+		],
+		"name" : "glad-populate"
+	}
+}

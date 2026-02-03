@@ -1,0 +1,10 @@
+^C:\USERS\AASH3\ONEDRIVE\ASHROOD\DOCUMENTS\CODING\SENTIENT-SPLAT-SLAM\BUILD\_DEPS\GLM-SRC\GLM\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam -BC:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build --check-stamp-file C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-build/glm/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

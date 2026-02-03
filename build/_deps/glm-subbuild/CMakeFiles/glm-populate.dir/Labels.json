@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/glm-populate"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/a1369e0a705a5d35d99c3b3e6163239c/glm-populate.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/f5211ee251d8e0aac9b2c3be5072c8c0/glm-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/49a3152a0bf6416eab086250137324bd/glm-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/49a3152a0bf6416eab086250137324bd/glm-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/49a3152a0bf6416eab086250137324bd/glm-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/49a3152a0bf6416eab086250137324bd/glm-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/49a3152a0bf6416eab086250137324bd/glm-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/49a3152a0bf6416eab086250137324bd/glm-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/49a3152a0bf6416eab086250137324bd/glm-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/aash3/OneDrive/Ashrood/Documents/coding/Sentient-Splat-Slam/build/_deps/glm-subbuild/CMakeFiles/49a3152a0bf6416eab086250137324bd/glm-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"glm-populate"
+		],
+		"name" : "glm-populate"
+	}
+}
