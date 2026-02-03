@@ -4,10 +4,10 @@ A real-time 3D Gaussian Splatting SLAM (Simultaneous Localization and Mapping) s
 
 ## Features
 
-- **Gaussian Splatting Rendering**: Real-time rendering of 3D Gaussian splats using OpenGL
-- **Interactive 3D Viewer**: Explore scenes with intuitive camera controls
-- **Scene Loading**: Load JSON-based scene definitions containing Gaussian parameters
-- **Test Scenes**: Includes synthetic grid-based test scenes for development and debugging
+- **Gaussian Point Rendering**: Real-time rendering of 3D Gaussian point clouds using OpenGL
+- **Interactive 3D Viewer**: Explore scenes with intuitive camera controls (WASD, mouse look)
+- **Scene Loading**: Load JSON-based scene definitions with Gaussian position, scale, rotation, and color
+- **Synthetic Scene Generators**: Python scripts to generate diverse test scenes (grid, galaxy, procedural clusters)
 
 ## Project Structure
 
@@ -27,11 +27,15 @@ Sentient-Splat-Slam/
 │   ├── build.ps1               # Build script (PowerShell)
 │   ├── clean.ps1               # Clean build artifacts
 │   ├── run_viewer.ps1          # Run the viewer application
-│   └── gen_grid_scene.py       # Generate synthetic test scenes
+│   ├── gen_grid_scene.py       # Generate grid-based test scene
+│   ├── gen_galaxy_scene.py     # Generate spiral galaxy scene
+│   └── generate_gaussians_scene.py  # Generate mixed procedural scene
 ├── assets/
 │   └── test_scenes/            # Test scene definitions
 │       ├── grid_gaussians.json
-│       └── grid_gaussians_large.json
+│       ├── grid_gaussians_large.json
+│       ├── galaxy.json
+│       └── scene_gaussians.json
 ├── CMakeLists.txt              # Root CMake configuration
 └── README.md                   # This file
 ```
@@ -98,21 +102,27 @@ Run the viewer with a test scene:
 
 ## Scene Format
 
-Scenes are defined in JSON format. Example structure:
+Scenes are defined in JSON format with the following Gaussian properties:
 ```json
 {
+  "format": "gaussian3d_v1",
   "gaussians": [
     {
-      "position": [x, y, z],
+      "mean": [x, y, z],
+      "scale": [sx, sy, sz],
+      "rotation": [qx, qy, qz, qw],
+      "opacity": a,
       "color": [r, g, b]
     }
   ]
 }
 ```
 
-Use `scripts/gen_grid_scene.py` to generate synthetic test scenes:
+Generate synthetic test scenes:
 ```bash
-python scripts/gen_grid_scene.py
+python scripts/gen_grid_scene.py --out assets/test_scenes/grid_gaussians.json
+python scripts/gen_galaxy_scene.py --out assets/test_scenes/galaxy.json
+python scripts/generate_gaussians_scene.py --out assets/test_scenes/scene_gaussians.json
 ```
 
 ## Development
@@ -142,12 +152,12 @@ Remove all build artifacts:
 ## Future Development
 
 Planned improvements include:
-- SLAM algorithm integration for camera localization
+- SLAM algorithm integration for camera localization and mapping
 - Real-time Gaussian parameter optimization
-- Point cloud import/export
-- Advanced rendering techniques (sorting, level-of-detail)
-- GPU-accelerated Gaussian splatting
-- Multi-scene support
+- Point cloud import/export (PLY, PCD formats)
+- Advanced rendering techniques (depth sorting, level-of-detail)
+- GPU-accelerated Gaussian splatting with compute shaders
+- Gaussian parameter visualization and editing tools
 
 ## License
 
