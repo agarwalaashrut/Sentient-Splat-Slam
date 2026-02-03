@@ -14,6 +14,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -32,15 +33,16 @@ struct Gaussian {
 };
 
 // Actual Gaussian when stored as a 3d texture
-// struct Gaussian3D {
-//   glm::vec3 mean;
-//   glm::mat3 covariance;
-//   float opacity;
-//   glm::vec3 color;
-// }
+struct Gaussian3D {
+  glm::vec3 mean;
+  glm::vec3 scale;
+  glm::quat rotation;
+  float opacity;
+  glm::vec3 color;
+};
 
 // Function to load gaussians from a JSON file
-static std::vector<Gaussian> load_gaussians_json(const std::string& filename) {
+static std::vector<Gaussian3D> load_gaussians_json(const std::string& filename) {
     std::ifstream in(filename);
     if (!in.is_open()) {
         throw std::runtime_error("Failed to open file: " + filename);
@@ -49,18 +51,40 @@ static std::vector<Gaussian> load_gaussians_json(const std::string& filename) {
     nlohmann::json j;
     in >> j;
 
-    std::vector<Gaussian> gaussians;
+    std::vector<Gaussian3D> gaussians;
     if (!j.contains("gaussians") || !j["gaussians"].is_array()) {
       throw std::runtime_error("JSON missing 'gaussians' array: " + filename);
     }
 
     for (const auto& item : j["gaussians"]) {
-        if (!item.contains("position") || !item.contains("color")) {
-            throw std::runtime_error("Gaussian missing 'position' or 'color' field");
+        if (!item.contains("color")) {
+            throw std::runtime_error("Gaussian missing 'color' field");
         }
-        Gaussian g;
-        g.position = glm::vec3(item["position"][0], item["position"][1], item["position"][2]);
+        Gaussian3D g;
+        
+        // Default values for all fields
+        g.mean = glm::vec3(0.0f, 0.0f, 0.0f);
+        g.scale = glm::vec3(1.0f, 1.0f, 1.0f);
+        g.rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
+        g.opacity = 1.0f;
         g.color = glm::vec3(item["color"][0], item["color"][1], item["color"][2]);
+        
+        // Parse optional fields if present
+        if (item.contains("mean") && item["mean"].is_array() && item["mean"].size() >= 3) {
+            g.mean = glm::vec3(item["mean"][0], item["mean"][1], item["mean"][2]);
+        } else if (item.contains("position") && item["position"].is_array() && item["position"].size() >= 3) {
+            g.mean = glm::vec3(item["position"][0], item["position"][1], item["position"][2]);
+        }
+        if (item.contains("scale") && item["scale"].is_array() && item["scale"].size() >= 3) {
+            g.scale = glm::vec3(item["scale"][0], item["scale"][1], item["scale"][2]);
+        }
+        if (item.contains("rotation") && item["rotation"].is_array() && item["rotation"].size() >= 4) {
+            g.rotation = glm::quat(item["rotation"][0], item["rotation"][1], item["rotation"][2], item["rotation"][3]);
+        }
+        if (item.contains("opacity") && item["opacity"].is_number()) {
+            g.opacity = item["opacity"].get<float>();
+        }
+        
         gaussians.push_back(g);
     }
 
@@ -218,7 +242,7 @@ int main(int argc, char** argv) {
   std::string scene_path = "assets/test_scenes/grid_gaussians.json";
   if (argc >= 2) scene_path = argv[1];
 
-  std::vector<Gaussian> gaussians;
+  std::vector<Gaussian3D> gaussians;
   try {
     gaussians = load_gaussians_json(scene_path);
   } catch (const std::exception& e) {
@@ -232,7 +256,7 @@ int main(int argc, char** argv) {
   std::vector<GPUPoint> points;
   points.reserve(gaussians.size());
   for (const auto& g : gaussians) {
-    points.push_back({g.position.x, g.position.y, g.position.z, g.color.r, g.color.g, g.color.b});
+    points.push_back({g.mean.x, g.mean.y, g.mean.z, g.color.r, g.color.g, g.color.b});
   }
 
   // Shaders: render points
@@ -347,8 +371,6 @@ int main(int argc, char** argv) {
     const bool D = glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS;
     const bool Q = glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS;
     const bool E = glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS;
-    const bool boost = (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) ||
-                       (glfwGetKey(window, GLFW_KEY_RIGHT_SHIFT) == GLFW_PRESS);
 
     cam.on_keyboard(W, A, S, D, Q, E, dt);
 
@@ -385,7 +407,7 @@ int main(int argc, char** argv) {
     ImGui::Separator();
     ImGui::Text("#Gaussians: %d", (int)gaussians.size());
     ImGui::Text("Scene: %s", scene_path.c_str());
-    ImGui::Text("Controls: WASD, Q/E, Shift boost, hold RMB to look");
+    ImGui::Text("Controls: WASD, Q/E, hold RMB to look");
     ImGui::End();
 
     ImGui::Render();
