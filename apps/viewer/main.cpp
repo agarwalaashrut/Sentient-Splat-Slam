@@ -41,6 +41,15 @@ struct Gaussian3D {
   glm::vec3 color;
 };
 
+struct GaussianInstanceGPU {
+  glm::vec4 mean_opacity;   // xyz, opacity
+  glm::vec4 quat;           // xyzw
+  glm::vec4 scale_colorx;   // scale.xyz, color.x
+  glm::vec4 coloryz_pad;    // color.y, color.z, 0, 0
+};
+
+static_assert(sizeof(GaussianInstanceGPU) == 64, "Instance struct must be 64 bytes");
+
 // Function to load gaussians from a JSON file
 static std::vector<Gaussian3D> load_gaussians_json(const std::string& filename) {
     std::ifstream in(filename);
@@ -245,6 +254,14 @@ int main(int argc, char** argv) {
   std::vector<Gaussian3D> gaussians;
   try {
     gaussians = load_gaussians_json(scene_path);
+    std::fprintf(stdout, "[DEBUG] Loaded %zu gaussians from %s\n", gaussians.size(), scene_path.c_str());
+    if (!gaussians.empty()) {
+      const auto& g0 = gaussians[0];
+      std::fprintf(stdout, "  First gaussian: mean=(%.2f, %.2f, %.2f), scale=(%.2f, %.2f, %.2f), color=(%.2f, %.2f, %.2f), opacity=%.2f\n",
+        g0.mean.x, g0.mean.y, g0.mean.z,
+        g0.scale.x, g0.scale.y, g0.scale.z,
+        g0.color.r, g0.color.g, g0.color.b, g0.opacity);
+    }
   } catch (const std::exception& e) {
     std::fprintf(stderr, "Scene load error: %s\n", e.what());
     glfwDestroyWindow(window);
@@ -261,28 +278,73 @@ int main(int argc, char** argv) {
 
   // Shaders: render points
   const char* vs_src = R"(
-    #version 330 core
-    layout(location=0) in vec3 aPos;
-    layout(location=1) in vec3 aCol;
-    uniform mat4 uView;
-    uniform mat4 uProj;
-    out vec3 vCol;
-    void main() {
-      vCol = aCol;
-      gl_Position = uProj * uView * vec4(aPos, 1.0);
-      gl_PointSize = 6.0;
-    }
+  #version 330 core
+layout(location=0) in vec2 aQuadPos;
+layout(location=1) in vec4 iMeanOpacity;
+layout(location=2) in vec4 iQuat;
+layout(location=3) in vec4 iScaleColorX;
+layout(location=4) in vec4 iColorYZPad;
+
+uniform mat4 uView;
+uniform mat4 uProj;
+
+out vec2 vLocalPos;
+out vec3 vColor;
+out float vOpacity;
+
+void main() {
+    vLocalPos = aQuadPos;
+    vColor = vec3(iScaleColorX.w, iColorYZPad.x, iColorYZPad.y);
+    vOpacity = iMeanOpacity.w;
+
+    mat3 camR = transpose(mat3(uView));
+    vec3 right = camR[0];
+    vec3 up    = camR[1];
+
+    float eps = 0.03;                 // match discard
+    float op  = max(vOpacity, eps);
+    float r2  = 2.0 * log(op / eps);
+    float r   = sqrt(max(r2, 0.0));
+    r = min(r, 1.5);                  // tighter cap
+
+    float z = max(-(uView * vec4(iMeanOpacity.xyz, 1.0)).z, 0.1);
+    float maxWorld = 0.01 * z;        // tune: 0.005..0.02
+    vec2 s = min(iScaleColorX.xy, vec2(maxWorld));
+
+    vec3 worldPos = iMeanOpacity.xyz +
+                    right * (aQuadPos.x * s.x * r) +
+                    up    * (aQuadPos.y * s.y * r);
+
+    gl_Position = uProj * uView * vec4(worldPos, 1.0);
+}
+
   )";
+
   const char* fs_src = R"(
     #version 330 core
-    in vec3 vCol;
-    out vec4 FragColor;
-    void main() { FragColor = vec4(vCol, 1.0); }
+in vec2 vLocalPos;
+in vec3 vColor;
+in float vOpacity;
+out vec4 FragColor;
+
+void main() {
+    float r2 = dot(vLocalPos, vLocalPos);
+    float t = 1.0 - r2;
+    t = clamp(t, 0.0, 1.0);
+
+    float alpha = vOpacity * t * t;
+
+    if (alpha < 0.03) discard;
+
+    FragColor = vec4(vColor * alpha, alpha); // premultiplied
+}
+
   )";
 
   GLuint prog = 0;
   try {
     prog = make_program(vs_src, fs_src);
+    std::fprintf(stdout, "[DEBUG] Shader program compiled successfully, ID=%u\n", prog);
   } catch (const std::exception& e) {
     std::fprintf(stderr, "%s\n", e.what());
     glfwDestroyWindow(window);
@@ -290,21 +352,43 @@ int main(int argc, char** argv) {
     return 1;
   }
 
-  GLuint vao = 0, vbo = 0;
-  glGenVertexArrays(1, &vao);
-  glGenBuffers(1, &vbo);
+  float quadVerts[] = { -1,-1,  1,-1,  1,1, -1,-1,  1,1, -1,1 };
 
-  glBindVertexArray(vao);
-  glBindBuffer(GL_ARRAY_BUFFER, vbo);
-  glBufferData(GL_ARRAY_BUFFER, (GLsizeiptr)(points.size() * sizeof(GPUPoint)), points.data(), GL_STATIC_DRAW);
-
+  GLuint quadVAO, quadVBO;
+  glGenVertexArrays(1, &quadVAO);
+  glGenBuffers(1, &quadVBO);
+  glBindVertexArray(quadVAO);
+  glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(quadVerts), quadVerts, GL_STATIC_DRAW);
   glEnableVertexAttribArray(0);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(GPUPoint), (void*)0);
+  glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
+  std::fprintf(stdout, "[DEBUG] Quad VBO setup complete, quadVBO=%u\n", quadVBO);
 
-  glEnableVertexAttribArray(1);
-  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(GPUPoint), (void*)(3 * sizeof(float)));
+  std::vector<GaussianInstanceGPU> instanceData;
+  for(const auto& g : gaussians) {
+      GaussianInstanceGPU inst;
+      inst.mean_opacity = glm::vec4(g.mean, g.opacity);
+      inst.quat = glm::vec4(g.rotation.x, g.rotation.y, g.rotation.z, g.rotation.w);
+      inst.scale_colorx = glm::vec4(g.scale, g.color.r);
+      inst.coloryz_pad = glm::vec4(g.color.g, g.color.b, 0.f, 0.f);
+      instanceData.push_back(inst);
+  }
+  std::fprintf(stdout, "[DEBUG] Built GPU instance data for %zu gaussians (size: %zu bytes)\n", instanceData.size(), instanceData.size() * sizeof(GaussianInstanceGPU));
 
-  glBindVertexArray(0);
+  GLuint instanceVBO;
+  glGenBuffers(1, &instanceVBO);
+  glBindBuffer(GL_ARRAY_BUFFER, instanceVBO);
+  glBufferData(GL_ARRAY_BUFFER, instanceData.size() * sizeof(GaussianInstanceGPU), instanceData.data(), GL_STATIC_DRAW);
+  std::fprintf(stdout, "[DEBUG] Instance VBO setup, instanceVBO=%u, data size=%zu bytes\n", instanceVBO, instanceData.size() * sizeof(GaussianInstanceGPU));
+
+  // Define Instanced Attributes (locations 1-4)
+  for (int i = 0; i < 4; i++) {
+      glEnableVertexAttribArray(i + 1);
+      glVertexAttribPointer(i + 1, 4, GL_FLOAT, GL_FALSE, sizeof(GaussianInstanceGPU), (void*)(i * sizeof(glm::vec4)));
+      glVertexAttribDivisor(i + 1, 1); // Tell GL this is per-instance
+      std::fprintf(stdout, "[DEBUG] Instance attribute %d setup (offset=%zu bytes)\n", i + 1, i * sizeof(glm::vec4));
+  }
+  std::fprintf(stdout, "[DEBUG] VAO setup complete, quadVAO=%u, instanceVBO=%u\n", quadVAO, instanceVBO);
 
   // ImGui setup
   IMGUI_CHECKVERSION();
@@ -312,6 +396,8 @@ int main(int argc, char** argv) {
   ImGui::StyleColorsDark();
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init("#version 330 core");
+  std::fprintf(stdout, "[DEBUG] Initialization complete, GL version: %s\n", glGetString(GL_VERSION));
+  std::fprintf(stdout, "[DEBUG] Entering render loop...\n");
 
   Camera cam;
 
@@ -375,9 +461,16 @@ int main(int argc, char** argv) {
     cam.on_keyboard(W, A, S, D, Q, E, dt);
 
     // Render
-    glEnable(GL_DEPTH_TEST);
-    glClearColor(0.05f, 0.06f, 0.07f, 1.0f);
+    // --- Clear screen ---
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    // --- Render Splats ---
+    glEnable(GL_BLEND);
+    // Premultiplied alpha blending is standard for Splatting
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA); 
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_FALSE); // Disable depth writes so splats can overlap smoothly
 
     glUseProgram(prog);
     const glm::mat4 V = cam.view();
@@ -385,10 +478,33 @@ int main(int argc, char** argv) {
 
     glUniformMatrix4fv(glGetUniformLocation(prog, "uView"), 1, GL_FALSE, &V[0][0]);
     glUniformMatrix4fv(glGetUniformLocation(prog, "uProj"), 1, GL_FALSE, &P[0][0]);
+    
+    glBindVertexArray(quadVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, instanceVBO);  // Ensure instanceVBO is bound
+    
+    static bool debug_once = true;
+    if (debug_once) {
+      std::fprintf(stdout, "[DEBUG] Rendering %zu instances (6 vertices each)\n", instanceData.size());
+      std::fprintf(stdout, "[DEBUG] Camera pos=(%.2f, %.2f, %.2f), aspect=%.2f\n", cam.position.x, cam.position.y, cam.position.z, aspect);
+      
+      // Check for GL errors
+      GLenum err = glGetError();
+      if (err != GL_NO_ERROR) {
+        std::fprintf(stderr, "[DEBUG] GL Error before draw: 0x%x\n", err);
+      }
+      debug_once = false;
+    }
+    
+    glDrawArraysInstanced(GL_TRIANGLES, 0, 6, (GLsizei)instanceData.size());
+    
+    // Check for GL errors after draw
+    GLenum err = glGetError();
+    if (err != GL_NO_ERROR) {
+      std::fprintf(stderr, "[DEBUG] GL Error after draw: 0x%x\n", err);
+    }
 
-    glBindVertexArray(vao);
-    glDrawArrays(GL_POINTS, 0, (GLsizei)points.size());
-    glBindVertexArray(0);
+    glDepthMask(GL_TRUE); // Re-enable for UI/Gizmos
+    glDisable(GL_BLEND);
 
     // ImGui overlay
     ImGui_ImplOpenGL3_NewFrame();
@@ -408,6 +524,9 @@ int main(int argc, char** argv) {
     ImGui::Text("#Gaussians: %d", (int)gaussians.size());
     ImGui::Text("Scene: %s", scene_path.c_str());
     ImGui::Text("Controls: WASD, Q/E, hold RMB to look");
+    ImGui::Separator();
+    ImGui::Text("Viewport: %d x %d", fbw, fbh);
+    ImGui::Text("Prog: %u | VAO: %u", prog, quadVAO);
     ImGui::End();
 
     ImGui::Render();
@@ -421,8 +540,13 @@ int main(int argc, char** argv) {
   ImGui_ImplGlfw_Shutdown();
   ImGui::DestroyContext();
 
-  glDeleteBuffers(1, &vbo);
-  glDeleteVertexArrays(1, &vao);
+  glDeleteBuffers(1, &quadVBO);
+  glDeleteVertexArrays(1, &quadVAO);
+
+  // Delete the dynamic instance data
+  glDeleteBuffers(1, &instanceVBO);
+
+  // Delete the shader program
   glDeleteProgram(prog);
 
   glfwDestroyWindow(window);

@@ -14,6 +14,6 @@ if (-not (Test-Path $Exe)) {
 }
 
 Set-Location $Root
-& $Exe "assets\test_scenes\scene_gaussians.json"
+& $Exe "assets\test_scenes\week2test.json"
 
 
