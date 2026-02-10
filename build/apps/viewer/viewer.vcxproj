@@ -369,8 +369,27 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\apps\viewer\main.cpp" />
-    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\camera.cpp" />
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\viewer\App.cpp" />
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\viewer\App.hpp" />
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Camera.cpp" />
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Camera.hpp" />
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Time.cpp" />
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Time.hpp" />
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Log.cpp" />
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Log.hpp" />
     <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\config.cpp" />
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Renderer.cpp" />
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Renderer.hpp" />
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Shader.cpp" />
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Shader.hpp" />
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Buffers.cpp" />
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Buffers.hpp" />
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\scene\Scene.cpp" />
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\scene\Scene.hpp" />
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\scene\SceneIO.cpp" />
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\scene\SceneIO.hpp" />
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\ui\DebugUI.cpp" />
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\ui\DebugUI.hpp" />
     <Natvis Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\nlohmann_json-src\nlohmann_json.natvis">
     </Natvis>
   </ItemGroup>

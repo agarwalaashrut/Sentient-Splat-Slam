@@ -106,8 +106,27 @@ target_link_libraries(imgui_lib PUBLIC glfw)
 # -------------------------
 add_executable(viewer
   main.cpp
-  ../../src/core/camera.cpp
+  ../../src/viewer/App.cpp
+  ../../src/viewer/App.hpp
+  ../../src/core/Camera.cpp
+  ../../src/core/Camera.hpp
+  ../../src/core/Time.cpp
+  ../../src/core/Time.hpp
+  ../../src/core/Log.cpp
+  ../../src/core/Log.hpp
   ../../src/core/config.cpp
+  ../../src/render/Renderer.cpp
+  ../../src/render/Renderer.hpp
+  ../../src/render/Shader.cpp
+  ../../src/render/Shader.hpp
+  ../../src/render/Buffers.cpp
+  ../../src/render/Buffers.hpp
+  ../../src/scene/Scene.cpp
+  ../../src/scene/Scene.hpp
+  ../../src/scene/SceneIO.cpp
+  ../../src/scene/SceneIO.hpp
+  ../../src/ui/DebugUI.cpp
+  ../../src/ui/DebugUI.hpp
 )
 
 # Allow includes like: #include "core/camera.h"

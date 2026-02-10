@@ -4,12 +4,71 @@
     <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\apps\viewer\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\camera.cpp">
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\viewer\App.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\config.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Buffers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\scene\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\scene\SceneIO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\ui\DebugUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\viewer\App.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Camera.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Time.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\core\Log.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Renderer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Shader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\render\Buffers.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\scene\Scene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\scene\SceneIO.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\src\ui\DebugUI.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\apps\viewer\CMakeLists.txt" />
@@ -18,6 +77,9 @@
     <Natvis Include="C:\Users\aash3\OneDrive\Ashrood\Documents\coding\Sentient-Splat-Slam\build\_deps\nlohmann_json-src\nlohmann_json.natvis" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{E4188845-5576-3E05-8C92-900537F67F0D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{9AADD974-3EE8-3E78-88FC-1181C917D971}</UniqueIdentifier>
     </Filter>
