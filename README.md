@@ -125,7 +125,7 @@ python scripts/gen_galaxy_scene.py --out assets/test_scenes/galaxy.json
 python scripts/generate_gaussians_scene.py --out assets/test_scenes/scene_gaussians.json
 ```
 
-## Development
+### Development
 
 ### Code Style
 
